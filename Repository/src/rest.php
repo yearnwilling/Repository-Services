@@ -6,7 +6,7 @@
  * Time: 上午11:22
  */
 
-namespace Repository_serrvices\Repository\Src;
+namespace Repository_services\Repository;
 
 
 class rest
