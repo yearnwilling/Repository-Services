@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Repository_services\\Repository\\" : "src"
+            "Repository_services\\Repository\\" : "Repository/src/"
         }
     },
     "repositories": {
