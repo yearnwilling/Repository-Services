@@ -25,5 +25,11 @@
             "Repository-Services\\Repository\\" : "src/"
         }
     },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
     "prefer-stable" : true
 }
