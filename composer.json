@@ -1,21 +1,28 @@
 {
     "name": "yearnwilling/repository-services",
     "description": "the Repository-Service for laravel 5.5+",
+    "keywords": [
+        "laravel",
+        "repository",
+        "services"
+    ],
     "license": "MIT",
     "authors": [
         {
-            "name": "weixianwei",
+            "name": "willingwei",
             "email": "weixianwei4@126.com"
         }
     ],
 
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "illuminate/support": "5.*",
+        "illuminate/database": "5.*"
     },
     "autoload": {
         "psr-4" : {
-            "Repository\\" : "src/Repository"
+            "Repository-Services\\Repository\\" : "src/"
         }
     }
 }
