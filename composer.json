@@ -1,5 +1,5 @@
 {
-    "name": "yearnwilling/repository-services",
+    "name": "yearnwilling/repositoryservices",
     "description": "the Repository-Service for laravel 5.5+",
     "keywords": [
         "laravel",
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Repository-Services\\Repository\\" : "src/"
+            "Repository_services\\Repository\\" : "src/"
         }
     },
     "repositories": {

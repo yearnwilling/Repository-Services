@@ -6,7 +6,7 @@
  * Time: 上午11:22
  */
 
-namespace src;
+namespace Repository_serrvices\Repository\Src;
 
 
 class rest
@@ -15,6 +15,4 @@ class rest
     {
         echo "This is rest!";
     }
-
-
 }
