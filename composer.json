@@ -30,6 +30,6 @@
             "type": "composer",
             "url": "https://packagist.phpcomposer.com"
         }
-    }
+    },
     "prefer-stable" : true
 }
