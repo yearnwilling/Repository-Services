@@ -11,7 +11,7 @@ namespace Repository_services\Rsc\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRepository
+abstract class Repository
 {
     protected $container;
 
@@ -23,6 +23,10 @@ abstract class BaseRepository
         $this->makeModel();
     }
 
+    /**
+     * 需要加载的model
+     * @return mixed
+     */
     abstract function model();
 
     public function makeModel() {
