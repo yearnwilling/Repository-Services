@@ -21,10 +21,10 @@ abstract class Service
     public function __construct(Container $container)
     {
         $this->container = $container;
-        $this->makeRepository();
+//        $this->makeRepository();
     }
 
-    abstract function repositories();
+//    abstract function repositories();
 
     protected function makeRepository()
     {
