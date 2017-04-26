@@ -18,6 +18,8 @@ abstract class Service
 
     protected $repositories;
 
+    protected $services;
+
     public function __construct(Container $container)
     {
         $this->container = $container;
@@ -34,10 +36,30 @@ abstract class Service
         $this->repositories[$key] = $repository;
     }
 
+    protected function injectionService($key, $service)
+    {
+        $service = $this->container->make($service);
+
+        if (!$service instanceof Service) {
+            throw new \Exception("Class {$this->repositories()} must be an instance of Repository_services\\Rsc\\Service\\Service");
+        }
+
+        $this->services[$key] = $service;
+    }
+
     protected function registerRepository($repositoryName, $repository)
     {
         if (!isset($this->repositories[$repositoryName])) {
             $this->injectionRepository($repositoryName, $repository);
         }
     }
+
+    protected function registerService($serviceName, $service)
+    {
+        if (!isset($this->services[$serviceName])) {
+            $this->injectionService($serviceName, $service);
+        }
+    }
+
+
 }
