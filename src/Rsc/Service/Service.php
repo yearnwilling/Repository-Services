@@ -31,6 +31,14 @@ abstract class Service
         $repositories_container = $this->repositories();
 
         foreach ($repositories_container as $key => $repository) {
+            $this->injectionRepository($key, $repository);
+        }
+
+        return $this->repositories;
+    }
+
+    public function injectionRepository($key, $repository) {
+        if (!isset($this->repositories[$key])) {
             $repository = $this->container->make($repository);
 
             if (!$repository instanceof Repository) {
@@ -38,10 +46,7 @@ abstract class Service
             }
 
             $this->repositories[$key] = $repository;
-
         }
-
-        return $this->repositories;
-
     }
+
 }
