@@ -21,23 +21,20 @@ abstract class Service
     public function __construct(Container $container)
     {
         $this->container = $container;
-//        $this->makeRepository();
     }
 
-//    abstract function repositories();
+//    protected function makeRepository()
+//    {
+//        $repositories_container = $this->repositories();
+//
+//        foreach ($repositories_container as $key => $repository) {
+//            $this->injectionRepository($key, $repository);
+//        }
+//
+//        return $this->repositories;
+//    }
 
-    protected function makeRepository()
-    {
-        $repositories_container = $this->repositories();
-
-        foreach ($repositories_container as $key => $repository) {
-            $this->injectionRepository($key, $repository);
-        }
-
-        return $this->repositories;
-    }
-
-    public function injectionRepository($key, $repository) {
+    protected function injectionRepository($key, $repository) {
         if (!isset($this->repositories[$key])) {
             $repository = $this->container->make($repository);
 
@@ -49,4 +46,10 @@ abstract class Service
         }
     }
 
+    protected function registerRepository($repositoryName, $repository) {
+        if (empty($this->repositories[$repositoryName])) {
+            throw new \Exception("the $repositoryName is not register in repositoriesNames function");
+        }
+        $this->injectionRepository($repositoryName, $repository);
+    }
 }
