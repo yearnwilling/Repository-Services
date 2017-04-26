@@ -34,22 +34,21 @@ abstract class Service
 //        return $this->repositories;
 //    }
 
-    protected function injectionRepository($key, $repository) {
-        if (!isset($this->repositories[$key])) {
-            $repository = $this->container->make($repository);
+    protected function injectionRepository($key, $repository)
+    {
+        $repository = $this->container->make($repository);
 
-            if (!$repository instanceof Repository) {
-                throw new \Exception("Class {$this->repositories()} must be an instance of Repository_services\\Rsc\\Repository\\Repository");
-            }
-
-            $this->repositories[$key] = $repository;
+        if (!$repository instanceof Repository) {
+            throw new \Exception("Class {$this->repositories()} must be an instance of Repository_services\\Rsc\\Repository\\Repository");
         }
+
+        $this->repositories[$key] = $repository;
     }
 
-    protected function registerRepository($repositoryName, $repository) {
-        if (empty($this->repositories[$repositoryName])) {
-            throw new \Exception("the $repositoryName is not register in repositoriesNames function");
+    protected function registerRepository($repositoryName, $repository)
+    {
+        if (!isset($this->repositories[$repositoryName])) {
+            $this->injectionRepository($repositoryName, $repository);
         }
-        $this->injectionRepository($repositoryName, $repository);
     }
 }
