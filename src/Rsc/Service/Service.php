@@ -23,17 +23,6 @@ abstract class Service
         $this->container = $container;
     }
 
-//    protected function makeRepository()
-//    {
-//        $repositories_container = $this->repositories();
-//
-//        foreach ($repositories_container as $key => $repository) {
-//            $this->injectionRepository($key, $repository);
-//        }
-//
-//        return $this->repositories;
-//    }
-
     protected function injectionRepository($key, $repository)
     {
         $repository = $this->container->make($repository);
