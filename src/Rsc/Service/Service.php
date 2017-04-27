@@ -18,7 +18,7 @@ class Service
 
     protected $repositories;
 
-    protected $services;
+    public $services;
 
     public function __construct(Container $container)
     {
