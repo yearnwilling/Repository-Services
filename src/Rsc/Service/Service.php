@@ -12,7 +12,7 @@ use Illuminate\Container\Container;
 use Repository_services\Rsc\Repository\Repository;
 
 
-abstract class Service
+class Service
 {
     protected $container;
 
