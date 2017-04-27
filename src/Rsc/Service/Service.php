@@ -54,7 +54,7 @@ class Service
         }
     }
 
-    protected function registerService($serviceName, $service)
+    public function registerService($serviceName, $service)
     {
         if (!isset($this->services[$serviceName])) {
             $this->injectionService($serviceName, $service);
