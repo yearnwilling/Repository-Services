@@ -37,4 +37,13 @@ abstract class Repository
 
         return $this->model = $model;
     }
+
+    public function wheres($builder, $conditions)
+    {
+        foreach ($conditions as $key => $condition) {
+            $cuttings = explode(' ', trim($condition), 2);
+            $builder->where($key , $conditions[0], $conditions[1]);
+        }
+        return $builder;
+    }
 }
