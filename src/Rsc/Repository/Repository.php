@@ -42,7 +42,7 @@ abstract class Repository
     {
         foreach ($conditions as $key => $condition) {
             $cuttings = explode(' ', trim($condition), 2);
-            $builder->where($key , $conditions[0], $conditions[1]);
+            $builder->where($key , $cuttings[0], $cuttings[1]);
         }
         return $builder;
     }
