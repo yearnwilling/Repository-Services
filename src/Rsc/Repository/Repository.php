@@ -46,4 +46,9 @@ abstract class Repository
         }
         return $builder;
     }
+
+    public function create($model_fields)
+    {
+        return $this->model->create($model_fields);
+    }
 }
