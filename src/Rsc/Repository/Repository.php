@@ -51,4 +51,14 @@ abstract class Repository
     {
         return $this->model->create($model_fields);
     }
+
+    /**
+     * @param $id integer needed update data Primary Key
+     * @param $model_fields
+     * @return mixed
+     */
+    public function update($id, $model_fields)
+    {
+        return $this->model->findOrFail($id)->update($model_fields);
+    }
 }
