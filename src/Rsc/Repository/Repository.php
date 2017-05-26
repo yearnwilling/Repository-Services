@@ -53,6 +53,7 @@ abstract class Repository
     }
 
     /**
+     * update modal date
      * @param $id integer needed update data Primary Key
      * @param $model_fields
      * @return mixed
@@ -62,16 +63,33 @@ abstract class Repository
         return $this->model->findOrFail($id)->update($model_fields);
     }
 
+    /**
+     * get all date
+     * @param array $preload Relationships modal's name
+     * @return mixed
+     */
     public function getAll($preload = array())
     {
         return $this->model->with($preload)->get();
     }
 
+    /**
+     * search date
+     * @param int $pageNumber one page list number
+     * @param array $preload  Relationships modal's name
+     * @return mixed
+     */
     public function search($pageNumber = 10, $preload = array())
     {
         return $this->model->with($preload)->paginate($pageNumber);
     }
 
+    /**
+     * get a line data
+     * @param $id integer the Primary Key of modal
+     * @param array $preload Relationships modal's name
+     * @return mixed
+     */
     public function get($id, $preload = array())
     {
         return $this->model->with($preload)->findOrFail($id);
