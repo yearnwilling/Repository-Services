@@ -61,4 +61,19 @@ abstract class Repository
     {
         return $this->model->findOrFail($id)->update($model_fields);
     }
+
+    public function getAll($preload = array())
+    {
+        return $this->model->with($preload)->get();
+    }
+
+    public function search($pageNumber = 10, $preload = array())
+    {
+        return $this->model->with($preload)->paginate($pageNumber);
+    }
+
+    public function get($id, $preload = array())
+    {
+        return $this->model->with($preload)->findOrFail($id);
+    }
 }
